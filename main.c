@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 typedef enum {
     SEMI,
@@ -32,7 +33,15 @@ void lexer(FILE *file){
     char current = fgetc(file);
 
     while(current != EOF){
-        printf("%c", current);
+        if (current == ';'){
+            printf("FOUND SEMICOLON\n");
+        } 
+        else if (current == '('){
+            printf("FOUND OPEN PAREN\n");
+        }
+        else if (current == ')'){
+            printf("FOUND CLOSE PAREN\n");
+        }
         current = fgetc(file); //fgetc reads next character from the file pointed 
     }
 }

@@ -13,3 +13,6 @@ Each constant in an enum is automatically assigned an integer value,
 starting from 0 by default unless explicitly specified.
 So basically, rather than using 0 for semicolon, 1 for open parenthesis, and 2 for close parenthesis, 
 we use SEMI, OPEN_PAREN, and CLOSE_PAREN, which makes the code much more descriptive.
+
+The issue was that `current == ";"` was comparing a char to a string (pointer), but you need to compare a char to a char.
+*** IMPORTANT *** Characters are written with single quotes (' ') in C, while strings are written with double quotes (" ").
