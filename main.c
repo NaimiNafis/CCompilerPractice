@@ -42,6 +42,12 @@ void lexer(FILE *file){
         else if (current == ')'){
             printf("FOUND CLOSE PAREN\n");
         }
+        else if (isdigit(current)){
+            printf("FOUND DIGIT: %d\n", current - '0'); //converts to digit character because '0' is 48 in ASCII value
+        }
+        else if (isalpha(current)){
+            printf("FOUND CHARACTER: %c\n", current);
+        }
         current = fgetc(file); //fgetc reads next character from the file pointed 
     }
 }
