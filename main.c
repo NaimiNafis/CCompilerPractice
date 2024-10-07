@@ -29,6 +29,24 @@ typedef struct {
     int value;
 } TokenLiteral;
 
+TokenLiteral *generate_number(char current, FILE *file){
+    TokenLiteral *token = malloc(sizeof(TokenLiteral)); // allocate memory for TokenLiteral in heap. *token is a pointer that hold the address of the new allocated memory in heap.
+    token -> type = INT; // -> used to access the fields of a struct through a pointer. usually use '.' like type.value.
+    char *value = malloc(sizeof(char) * 8);
+    int value_index = 0;
+    while (isdigit(current) && current != EOF){
+        if (!isdigit(current)){
+            break;
+        }
+        value[value_index] = current;
+        value_index++;
+        current = fgetc(file);
+    }
+    token->value = atoi(value); //converts the string of digits stored in value to an actual integer. 
+    free(value); // remember to free the heap after use
+    return(token);
+}
+
 void lexer(FILE *file){
     char current = fgetc(file);
 
@@ -43,7 +61,9 @@ void lexer(FILE *file){
             printf("FOUND CLOSE PAREN\n");
         }
         else if (isdigit(current)){
-            printf("FOUND DIGIT: %d\n", current - '0'); //converts to digit character because '0' is 48 in ASCII value
+            TokenLiteral *test_token = generate_number(current, file);
+            printf("TEST TOKEN VALUE: %d\n", test_token->value);
+            free(test_token);
         }
         else if (isalpha(current)){
             printf("FOUND CHARACTER: %c\n", current);

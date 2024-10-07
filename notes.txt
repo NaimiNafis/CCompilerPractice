@@ -16,3 +16,7 @@ we use SEMI, OPEN_PAREN, and CLOSE_PAREN, which makes the code much more descrip
 
 The issue was that `current == ";"` was comparing a char to a string (pointer), but you need to compare a char to a char.
 *** IMPORTANT *** Characters are written with single quotes (' ') in C, while strings are written with double quotes (" ").
+
+char: This represents a single character (like 'A', '3', etc.).
+char*: This is a pointer to an array of characters (a string in C).
+
