@@ -1,0 +1,15 @@
+Basic Compiler (Lexer -> Parser -> Compiler)
+
+Lexical Analizer -> source code is read and divided into tokens
+    Tokens  =   Keywords(EXIT, NAME, etc.), 
+                Literals(4, 24, etc.)
+                Separators( ;, (), etc.)
+                Symbols, etc.
+
+typedef is used so that no need to write `struct *` each time i want to use *. It's a declaration simplifier.
+
+An enum (short for "enumeration") is a user-defined type that consists of a set of named integer constants. 
+Each constant in an enum is automatically assigned an integer value, 
+starting from 0 by default unless explicitly specified.
+So basically, rather than using 0 for semicolon, 1 for open parenthesis, and 2 for close parenthesis, 
+we use SEMI, OPEN_PAREN, and CLOSE_PAREN, which makes the code much more descriptive.

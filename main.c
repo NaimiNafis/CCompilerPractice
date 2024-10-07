@@ -4,7 +4,7 @@
 typedef enum {
     SEMI,
     OPEN_PAREN,
-    CLSOE_PAREN,
+    CLOSE_PAREN,
 } TypeSeparator;
 
 typedef enum {
