@@ -28,11 +28,17 @@ typedef struct {
     int value;
 } TokenLiteral;
 
+void lexer(FILE *file){
+    char current = fgetc(file);
+
+    while(current != EOF){
+        printf("%c", current);
+        current = fgetc(file); //fgetc reads next character from the file pointed 
+    }
+}
 
 int main() {
-    TokenLiteral token;
-    token.type = INT;
-    token.value = 6;
-    printf("%d\n", token.value);
-    return 0;
+    FILE *file;
+    file = fopen("test.unn", "r");
+    lexer(file);
 }
